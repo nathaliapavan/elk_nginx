@@ -9,6 +9,7 @@ services:
       - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
     networks:
       - elastic
+    command: ["/bin/sh", "-c", "chmod -R u+w /var/log/nginx && nginx -g 'daemon off;'"]
 
   elasticsearch:
     image: docker.elastic.co/elasticsearch/elasticsearch:7.10.2
