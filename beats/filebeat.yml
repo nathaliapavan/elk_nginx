@@ -1,0 +1,13 @@
+filebeat.inputs:
+- type: log
+  enabled: true
+  paths:
+    - /var/log/nginx/access.log
+    - /var/log/nginx/error.log
+  scan_frequency: 1s
+  # tail_files: true
+  fields:
+    nginx: true
+  fields_under_root: true
+output.logstash:
+  hosts: ["logstash:5044"]
